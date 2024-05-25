@@ -30,7 +30,6 @@ js-sys = { version = "0.3", optional = true }
 wasm-bindgen-test = "0.3.18"
 
 [features]
-js = ["getrandom/js"]
 # Implement std-only traits for getrandom::Error
 std = []
 # Disable `/dev/urandom` fallback for Linux and Android targets.
@@ -39,7 +38,7 @@ linux_disable_fallback = []
 # Feature to enable fallback RDRAND-based implementation on x86/x86_64
 rdrand = []
 # Feature to enable JavaScript bindings on wasm*-unknown-unknown
-js = ["wasm-bindgen", "js-sys"]
+js = ["getrandom/js","wasm-bindgen", "js-sys"]
 # Feature to enable custom RNG implementations
 custom = []
 # Unstable feature to support being a libstd dependency
