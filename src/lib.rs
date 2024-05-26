@@ -343,8 +343,6 @@ cfg_if! {
         //                 default, you may need to enable the \"js\" feature. \
         //                 For more information see: \
         //                 https://docs.rs/getrandom/#webassembly-support");
-        mod util_libc;
-        #[path = "getrandom.rs"] mod imp;
     } else {
         compile_error!("target is not supported, for more information see: \
                         https://docs.rs/getrandom/#unsupported-targets");
