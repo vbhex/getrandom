@@ -339,10 +339,12 @@ cfg_if! {
         use custom as imp;
     } else if #[cfg(all(any(target_arch = "wasm32", target_arch = "wasm64"),
                         target_os = "unknown"))] {
-        compile_error!("the wasm*-unknown-unknown targets are not supported by \
-                        default, you may need to enable the \"js\" feature. \
-                        For more information see: \
-                        https://docs.rs/getrandom/#webassembly-support");
+        // compile_error!("the wasm*-unknown-unknown targets are not supported by \
+        //                 default, you may need to enable the \"js\" feature. \
+        //                 For more information see: \
+        //                 https://docs.rs/getrandom/#webassembly-support");
+        mod util_libc;
+        #[path = "getrandom.rs"] mod imp;
     } else {
         compile_error!("target is not supported, for more information see: \
                         https://docs.rs/getrandom/#unsupported-targets");
